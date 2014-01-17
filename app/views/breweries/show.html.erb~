@@ -18,7 +18,7 @@
  <% end %>
 </p>
 
-
+<%= link_to 'list of beers', beers_path %></br>
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
 

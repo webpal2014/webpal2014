@@ -10,4 +10,8 @@ class Beer < ActiveRecord::Base
 		#end 
 		#return a/ratings.length
 	end
+
+	def to_s
+		return name + ' ' +brewery.name  
+	end
 end

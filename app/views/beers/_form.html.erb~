@@ -11,6 +11,9 @@
     </div>
   <% end %>
 
+
+  <%= f.submit %>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -22,9 +25,8 @@
   <div class="field">
     <%= f.label :brewery_id %><br>
     
-    <%=f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name)%>
+<%=f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name)%>
   </div>
-
   <div class="actions">
     <%= f.submit %>
   </div>

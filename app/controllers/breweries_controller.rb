@@ -78,7 +78,7 @@ class BreweriesController < ApplicationController
 
    authenticate_or_request_with_http_basic do |username, password|
 
-      username == "admin" and password == "secret"
+      admin_accounts[username] and password == admin_accounts[username] 
 
     end
   end	

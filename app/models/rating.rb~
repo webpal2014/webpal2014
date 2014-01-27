@@ -1,8 +1,9 @@
 class Rating < ActiveRecord::Base
-	belongs_to :beer
+  belongs_to :beer
+  belongs_to :user   # rating kuuluu myös käyttäjään
 
-	def to_s
-		return beer.name+" "+score.to_s
-	end
+  def to_s
+    return "#{beer.name} #{score}"
+  end
 
 end

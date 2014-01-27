@@ -27,6 +27,15 @@ class BreweriesController < ApplicationController
   def create
     @brewery = Brewery.new(brewery_params)
 
+	if(Date.today.year < @brewery.year)
+		@brewery.errors[:year] << "Error"
+	end
+
+	if(@brewery.errors.any?)
+		render :new
+		return
+	end
+
     respond_to do |format|
       if @brewery.save
         format.html { redirect_to @brewery, notice: 'Brewery was successfully created.' }

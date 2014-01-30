@@ -3,9 +3,6 @@ class Membership < ActiveRecord::Base
 belongs_to :user
 belongs_to :beer_club  
 
-def to_s
-    return "#{beer_club.name}"
-  end
 
 
 

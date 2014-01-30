@@ -10,12 +10,14 @@ class MembershipsController < ApplicationController
   # GET /memberships/1
   # GET /memberships/1.json
   def show
+    @user = User.all
   end
 
   # GET /memberships/new
   def new
 	@membership = Membership.new
 	@beer_clubs = BeerClub.all
+	@cur = current_user
   end
 
   def join

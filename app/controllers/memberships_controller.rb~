@@ -10,12 +10,14 @@ class MembershipsController < ApplicationController
   # GET /memberships/1
   # GET /memberships/1.json
   def show
+    @beer_clubs = User.all
   end
 
   # GET /memberships/new
   def new
 	@membership = Membership.new
 	@beer_clubs = BeerClub.all
+	@cur = current_user
   end
 
   def join
@@ -32,7 +34,7 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
 
-    @membership = Membership.new(membership_params[:beer_club_id],current_user.id)
+    @membership = Membership.new(membership_params)
 #@membership = Membership.new(params[:membership_id],current_user.id)
 
     respond_to do |format|

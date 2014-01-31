@@ -14,11 +14,10 @@
 </p>
 <p>
     <% @memberships.each do |membership| %>
-      <tr>
+    
 
-        <td><%= link_to membership.user_id, membership_path %></td>
+        <%= link_to membership.user, user %><br>
 
-      </tr>
     <% end %>
 <br>
 <%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |

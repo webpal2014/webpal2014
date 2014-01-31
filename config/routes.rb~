@@ -25,6 +25,9 @@ Ratebeer::Application.routes.draw do
 
 post 'join_member', to: 'memberships#join'
 
+  resources :memberships, only: [:new]
+
+
 
 
 

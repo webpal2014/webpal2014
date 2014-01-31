@@ -16,7 +16,7 @@
     <% @memberships.each do |membership| %>
     
 
-        <%= link_to membership.user_id, membership_path %><br>
+        <%= link_to membership.user, user_path(membership.user_id) %><br>
 
     <% end %>
 <br>

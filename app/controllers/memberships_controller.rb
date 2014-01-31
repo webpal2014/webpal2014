@@ -33,7 +33,7 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
-
+@beer_clubs = BeerClub.all
     @membership = Membership.new(membership_params)
 #@membership = Membership.new(params[:membership_id],current_user.id)
 

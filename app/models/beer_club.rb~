@@ -4,6 +4,10 @@ class BeerClub < ActiveRecord::Base
 has_many :memberships 
 has_many :users, through: :memberships
 
+	validates :user_id, uniqueness: true
 
+  def to_s
+    return name
+  end
 
 end

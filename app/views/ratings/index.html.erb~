@@ -4,9 +4,9 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to current_user,current_user %> </li>
+    <li> <%= rating %> <%= link_to rating.user, current_user %> </li>
   <% end %>
-</ul>
+</ul
 
 <br>
 <%= link_to 'New rating', new_rating_path %>

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
   end
 
+
   # GET /users/new
   def new
     @user = User.new
@@ -50,6 +51,8 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /users/1
   # DELETE /users/1.json

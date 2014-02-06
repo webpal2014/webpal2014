@@ -5,6 +5,12 @@ gem 'rails', '4.0.2'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+group :test do
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
+end
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
 end

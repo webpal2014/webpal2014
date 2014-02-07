@@ -11,6 +11,8 @@ group :test do
   gem 'launchy'
 end
 
+gem 'simplecov', require: false
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
 end

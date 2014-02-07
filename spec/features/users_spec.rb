@@ -68,7 +68,29 @@ describe "User" do
   expect(Rating.all.count).to eq(rating_count-1)
   
  end
+ 
+ it "9" do
+	user1 = FactoryGirl.create(:user, username: "user1")
+	sign_in(username:"user1", password:"Foobar1")
 
+	brewery1 = FactoryGirl.create :brewery, name:"Koff"	
+	brewery2 = FactoryGirl.create :brewery, name:"Karjala"
+
+	beer1 = FactoryGirl.create(:beer, name:"iso 3", brewery: brewery1, style: "koe")
+	beer2 = FactoryGirl.create(:beer, name: "Karhu", brewery: brewery2, style: "uusi")
+
+	FactoryGirl.create(:rating, score: 23,  beer: beer1, user: user1)
+	FactoryGirl.create(:rating, score: 33,  beer: beer2, user: user1)
+	FactoryGirl.create(:rating, score: 13,  beer: beer1, user: user1)
+	FactoryGirl.create(:rating, score: 22,  beer: beer2, user: user1)
+	FactoryGirl.create(:rating, score: 33,  beer: beer1, user: user1)
+	FactoryGirl.create(:rating, score: 32,  beer: beer2, user: user1)
+
+	visit user_path(user1)
+
+	expect(page).to have_content("Favorite style uusi")
+	expect(page).to have_content("Favorite brewery Karjala")
+ end
 
 end
 

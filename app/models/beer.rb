@@ -7,6 +7,7 @@ class Beer < ActiveRecord::Base
 
 		validates :name, presence: true
  		validates :style, presence: true
+ 		validates :brewery, presence: true
 
 	def to_s
 		return name + ' ' +brewery.name  

@@ -6,7 +6,6 @@ describe User do
     user.username.should == "Pekka"
   end
 
-
   it "is not saved without a password" do
     user = User.create username:"Pekka"
 
@@ -71,7 +70,70 @@ describe User do
     end
   end
 
-end # describe User 
+describe "3" do
+  let(:user){FactoryGirl.create(:user) }
+  it "3.1" do
+	user.should respond_to :favorite_style
+  end
+
+  it "3.2" do
+	expect(user.favorite_style).to eq(nil)
+  end 
+
+  it "3.3" do
+	style_rating(10 , user, "koe")
+
+	expect(user.favorite_style).to eq("koe")
+
+  end
+
+    it "3.4" do
+	style_rating(10 , user, "koe")
+	style_rating(40 , user, "koe")
+	style_rating(20 , user, "koe1")
+	expect(user.favorite_style).to eq("koe")
+
+  end
+
+  it "4.1" do
+	 user.should respond_to :favorite_brewery
+  end
+ 
+  it "4.2" do
+	expect(user.favorite_brewery).to eq(nil)
+  end 
+  
+  it "4.3" do
+	b = brewery_rating(10,  user, "Uusi")
+	expect(user.favorite_brewery).to eq(b)
+  end
+
+  it "4.4" do
+	b = brewery_rating(10,  user, "Uusi")
+	brewery_rating(10,  user, "Uusi")
+	brewery_rating(10,  user, "Uusi")
+	brewery_rating(10,  user, "Uusi2")
+	expect(user.favorite_brewery).to eq(b)
+  end
+end
+  
+
+end # describe User
+
+def style_rating(score,  user, style)
+
+  beer = FactoryGirl.create(:beer, style: style)
+  FactoryGirl.create(:rating, score: score,  beer: beer, user: user)
+
+end 
+
+def brewery_rating(score,  user, brewery_name)
+
+    brewery = FactoryGirl.create(:brewery, name: brewery_name)
+    beer = FactoryGirl.create(:beer, brewery: brewery)
+    FactoryGirl.create(:rating, score: score,  beer: beer, user: user)
+    return brewery
+end
 
 def create_beers_with_ratings(*scores, user)
   scores.each do |score|

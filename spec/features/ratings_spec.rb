@@ -7,6 +7,7 @@ describe "Rating" do
   let!(:beer2) { FactoryGirl.create :beer, name:"Karhu", brewery:brewery }
   let!(:user) { FactoryGirl.create :user }
 
+
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")
   end
@@ -23,5 +24,10 @@ describe "Rating" do
     expect(user.ratings.count).to eq(1)
     expect(beer1.ratings.count).to eq(1)
     expect(beer1.average_rating).to eq(15.0)
+ 
   end
+
+
+
+
 end

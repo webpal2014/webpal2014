@@ -39,11 +39,7 @@ def new
 
     respond_to do |format|
 
-      if @beer.style == ""
-	format.html { render action: 'new' }
-        format.json { render json: @beer.errors, status: :unprocessable_entity }
-      
-      elsif @beer.save
+      if @beer.save
         format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @beer }
       else

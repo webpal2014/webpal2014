@@ -20,12 +20,12 @@ describe "Beer" do
   it "new beer_error" do
     visit new_beer_path
     select('Weizen', from:'beer_style')
-    beer_brewery_id = ""
-    fill_in('beer_name', with:'Olut1')
+    select('Koff', from:'beer[brewery_id]')
+    fill_in('beer_name', with:'')
 
     click_button "Create Beer"
 
-    expect(page).to have_content "Brewery can't be blank"
+    expect(page).to have_content "Name can't be blank"
 
   end
 end

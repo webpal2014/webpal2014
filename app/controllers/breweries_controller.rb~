@@ -1,6 +1,7 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, only: [:destroy]
+  #before_filter :authenticate, only: [:destroy]
+
 
   # GET /breweries
   # GET /breweries.json
@@ -29,6 +30,11 @@ class BreweriesController < ApplicationController
 
 	if(Date.today.year < @brewery.year)
 		@brewery.errors[:year] << "Error"
+	end
+
+	if(@brewery.errors.any?)
+		render :new
+		return
 	end
 
     respond_to do |format|
@@ -77,13 +83,6 @@ class BreweriesController < ApplicationController
       params.require(:brewery).permit(:name, :year)
     end
 
-    def authenticate
-	admin_accounts = { "admin" => "secret", "pekka" => "beer", "arto" => "foobar", "matti" => "ittam"}
 
-   authenticate_or_request_with_http_basic do |username, password|
-
-      admin_accounts[username] and password == admin_accounts[username] 
-
-    end
   end	
 end

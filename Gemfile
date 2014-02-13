@@ -13,6 +13,8 @@ end
 
 gem 'simplecov', require: false
 
+gem 'httparty'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
 end

@@ -26,7 +26,9 @@
 	<%= link_to 'signup', signup_path %>
 	<% end %>
 
-  <%= link_to 'join club', new_membership_path %>  
+	<% if not current_user.nil? %>
+  	<%= link_to 'join club', new_membership_path %>
+	<% end %>  
 </div>
 <%= yield %>
 <% if session[:last_rating].nil? %>

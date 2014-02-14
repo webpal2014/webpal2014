@@ -1,7 +1,7 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
   before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
-before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :ensure_that_signed_in, except: [:index, :show]
 
   # GET /beers
   # GET /beers.json
@@ -18,7 +18,7 @@ before_action :ensure_that_signed_in, except: [:index, :show]
 
   def set_breweries_and_styles_for_template
     @breweries = Brewery.all
-    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+    @styles = Style.all #["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
   end
 
   # GET /beers/new
@@ -86,6 +86,6 @@ def new
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params.require(:beer).permit(:name, :style, :brewery_id)
+      params.require(:beer).permit(:name, :style_id, :brewery_id)
     end
 end

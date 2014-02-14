@@ -16,7 +16,7 @@
     <% @beers.each do |beer| %>
       <tr>
         <td><%= link_to beer.name, beer %></td>
-        <td><%= beer.style %></td>
+        <td><%= @style %></td>
         <td><%= link_to beer.brewery.name, beer.brewery %></td>
         <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
         <td><%= link_to 'Destroy', beer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -26,7 +26,5 @@
 </table>
 
 <br>
-<% if not current_user.nil? %>
-  <%= link_to('New Beer', new_beer_path) %>
-<% end %>
+<%= link_to('New Beer', new_beer_path) if current_user %>
 <%= link_to 'list of breweries', breweries_path %>

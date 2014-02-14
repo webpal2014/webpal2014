@@ -13,7 +13,7 @@ end
 
   it "new beer" do
     visit new_beer_path
-    select('Weizen', from:'beer_style')
+    select('Weizen', from:'beer[style_id]')
     select('Koff', from:'beer[brewery_id]')
     fill_in('beer_name', with:'Olut1')
 

@@ -39,6 +39,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
     @membership.user = current_user
     @club = @membership.beer_club
+	
 
 
     respond_to do |format|

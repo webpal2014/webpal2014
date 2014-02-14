@@ -13,18 +13,20 @@
   <strong>Members</strong>
 </p>
 <p>
-    <% @memberships.each do |membership| %>
+    <% @beer_club.users.each do |u| %>
     
 
-        <%= link_to membership.user, user_path(membership.user_id) %><br>
+        <%= link_to u.username, user_path(u.id) %><br>
 
     <% end %>
 <br>
 
 <% if not current_user.nil?  %>
- <%= form_for(@membership) do |f| %>
-    <%= f.hidden_field :beer_club_id, 1  %>
+ <% if !@beer_club.users.include?(current_user)%>
+  <%= form_for(@membership) do |f| %>
+    <%= f.hidden_field :beer_club_id %>
     <%= f.submit value:"join the club" %>
+  <% end %>
  <% end %>
 <% end %>
 

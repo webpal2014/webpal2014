@@ -38,8 +38,8 @@ class MembershipsController < ApplicationController
     #@beer_clubs = BeerClub.all
     @membership = Membership.new(membership_params)
     @membership.user = current_user
-    @membership.beer_club = 
     @club = @membership.beer_club
+	
 
 
     respond_to do |format|

@@ -13,7 +13,8 @@ before_action :ensure_that_signed_in, except: [:index, :show]
   # GET /beer_clubs/1.json
   def show
  @beer_clubs = BeerClub.all
-@memberships = Membership.all
+ @memberships = Membership.all
+ @membership = Membership.new
   end
 
   # GET /beer_clubs/new

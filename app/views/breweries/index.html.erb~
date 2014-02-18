@@ -4,11 +4,9 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Year</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th> <%= link_to 'Name', beers_path(order:"name") %> </th>
+      <th> <%= link_to 'Year', beers_path(order:"year") %> </th>
+
     </tr>
   </thead>
 
@@ -27,4 +25,5 @@
 
 <br>
 
-<%= link_to 'New Brewery', new_brewery_path %>
+<%= link_to 'New Brewery', new_brewery_path %><br>
+<%= link_to 'list of beers', beers_path %>

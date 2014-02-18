@@ -1,4 +1,6 @@
 Ratebeer::Application.routes.draw do
+  resources :styles
+
   resources :memberships
 
   resources :beer_clubs
@@ -18,7 +20,11 @@ Ratebeer::Application.routes.draw do
 
   get 'signup', to: 'users#new'
 
-  get'places', to: 'places#index'
+  #get'places', to: 'places#index'
+
+  get 'beerlist', to:'beers#list'
+
+  resources :places, only:[:index, :show]
 
   post 'places', to:'places#search'
 

@@ -12,6 +12,8 @@ group :test do
   gem 'webmock'
 end
 
+gem 'jquery-turbolinks'
+
 gem "rails-settings-cached", "0.3.1"
 
 gem 'simplecov', require: false

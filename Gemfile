@@ -12,6 +12,10 @@ group :test do
   gem 'webmock'
 end
 
+gem 'selenium-webdriver'
+
+gem 'database_cleaner', '< 1.1.0'
+
 gem 'jquery-turbolinks'
 
 gem "rails-settings-cached", "0.3.1"

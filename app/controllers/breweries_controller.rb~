@@ -7,6 +7,13 @@ before_action :ensure_that_signed_in, except: [:index, :show]
   # GET /breweries.json
   def index
     @breweries = Brewery.all
+
+  order = params[:order] || 'name'
+
+    case order
+      when 'name' then @breweries.sort_by!{ |b| b.name }
+      when 'year' then @breweries.sort_by!{ |b| b.year }
+    end
   end
 
   # GET /breweries/1

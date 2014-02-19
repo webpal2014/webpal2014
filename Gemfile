@@ -12,6 +12,11 @@ group :test do
   gem 'webmock'
 end
 
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
+
 gem 'selenium-webdriver'
 
 gem 'database_cleaner', '< 1.1.0'

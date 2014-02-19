@@ -1,11 +1,11 @@
 <h1>Listing breweries</h1>
 <p> Number of breweries: <%= @breweries.count %> </p> 
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th> <%= link_to 'Name', beers_path(order:"name") %> </th>
-      <th> <%= link_to 'Year', beers_path(order:"year") %> </th>
+      <th> <%= link_to 'Name', breweries_path(order:"name") %> </th>
+      <th> <%= link_to 'Year', breweries_path(order:"year") %> </th>
 
     </tr>
   </thead>
@@ -17,7 +17,7 @@
         <td><%= brewery.year %></td>
         
         <td><%= link_to 'Edit', edit_brewery_path(brewery) %></td>
-        <td><%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy' , brewery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

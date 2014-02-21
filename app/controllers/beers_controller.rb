@@ -9,6 +9,7 @@ class BeersController < ApplicationController
   def index
     @beers = Beer.all
 
+
     order = params[:order] || 'name'
 
     case order

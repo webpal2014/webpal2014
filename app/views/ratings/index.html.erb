@@ -1,12 +1,52 @@
-<h2>List of ratings</h2>
+<h2>Rating statistics</h2>
 
-<p>Number of ratings <%= @ratings.count%></p>
 
-<ul>
-  <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to rating.user, rating.user %> </li>
+
+<table>
+<tr>
+   <td style="padding-right: 35px;">
+     <p><h3>Best beers</h3></p>
+     <%= render 'list', averages: @beers_average %>
+   </td>
+
+   <td style="padding-right: 35px;">
+     <p><h3>Best breweries</h3></p>
+     <%= render 'list', averages: @top_breweries %>
+   </td>
+ 
+   <td style="padding-right: 35px;">
+     <p><h3>Best breweries</h3></p>
+     <%= render 'list', averages: @style_average %>
+   </td>
+</tr>
+<tr>
+   <td colspan=3 style="padding-right: 35px;">
+<table class="table table-hover">
+
+  <thead>
+    <tr>
+	<th></th><th>favorite beer</th><th>prefered style</th><th>favorite brewery</th> 
+        <th>ratings</th>
+    </tr>
+  </thead>
+
+ <tbody>
+  <% @active_user.each do |user| %>
+   <tr>
+     <td><%= user.username %></td>
+     <td><%= user.favorite_beer %></td>
+     <td><%= user.favorite_style %></td>
+     <td><%= user.favorite_brewery %></td>
+     <td><%= user.ratings.size %></td>
+   </tr>
   <% end %>
-</ul
+ </tbody>
+
+</table>
+   </td>
+
+</tr>
+</table>
 
 <br>
 	<% if not current_user.nil? %>

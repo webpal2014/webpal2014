@@ -100,6 +100,16 @@ end
 	end
 	return sum/count
   end
+
+  def self.active_user
+
+	return  User.all.sort_by{|u| -u.ratings.size}.take 3
+
+  end
+
+
+
+
 end
 
 

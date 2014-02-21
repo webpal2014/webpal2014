@@ -13,4 +13,11 @@ class Beer < ActiveRecord::Base
 	def to_s
 		return name + ' ' +brewery.name  
 	end
+
+  def self.average
+    return Beer.all.sort_by{|b| -b.average_rating}.take(3)
+  end
+
+
+
 end

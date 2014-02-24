@@ -1,4 +1,5 @@
 == README
 {<img src="https://travis-ci.org/webpal2014/webpal2014.png?branch=master" alt="Build Status" />}[https://travis-ci.org/webpal2014/webpal2014]
 {<img src="https://codeclimate.com/github/webpal2014/webpal2014.png" />}[https://codeclimate.com/github/webpal2014/webpal2014]
-http://sleepy-depths-3409.herokuapp.com/
+
+Heroku: http://sleepy-depths-3409.herokuapp.com/
